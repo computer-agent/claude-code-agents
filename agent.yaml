@@ -1,0 +1,39 @@
+spec_version: "0.1.0"
+name: claude-code-agents
+version: 1.0.0
+description: >
+  A complete Claude Code plugin for solo-dev startups — 24 specialized subagents
+  and 6 workflow skills covering parallel code audits, security scanning, browser QA,
+  dependency checks, automated fix cycles, and release preparation. Designed for
+  Next.js / React / TypeScript full-stack projects (Prisma, Vercel), with strict
+  human-approval protocols to keep AI agents in scope at every step.
+author: undeadlist
+license: MIT
+
+model:
+  preferred: anthropic:claude-sonnet-4-6
+  constraints:
+    temperature: 0.3
+    max_tokens: 8192
+
+skills:
+  - full-audit
+  - pre-commit
+  - pre-deploy
+  - new-feature
+  - bug-fix
+  - release-prep
+
+runtime:
+  max_turns: 100
+  timeout: 1800
+
+compliance:
+  risk_tier: standard
+  supervision:
+    human_in_the_loop: destructive
+    kill_switch: true
+  recordkeeping:
+    audit_logging: true
+  data_governance:
+    pii_handling: redact
